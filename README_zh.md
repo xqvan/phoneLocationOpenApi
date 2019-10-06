@@ -1,19 +1,16 @@
-# beego based mobile phone number attribution query interface implementation
+# 基于beego的手机号归属地查询接口实现
 
-- [中文文档](README_zh.md)  
-I learned beego some time ago and found a project that I practiced. So I realized it with beego and it was very stable after testing.
+前一段时间学习beego，找了一个练手的项目，于是用beego实现了一下，经过测试非常稳定。
 
-> This may be the latest and most useful online mobile phone number attribution information query interface in China.
+> 这可能是全网上能找到的最新最全最好用的中国境内手机号归属地信息库查询接口。
 
-## Test API
+## 测试地址：
 http://47.100.39.205:8018/v1.0/api/phoneLocation?phoneNum=18800000000
 
-Single ip is limited to 10,000 visits per day. If the amount is not enough, you can contact me and you will be finished.
+单 ip 每天访问次数限制为 10000 次。量不够的话可以联系我加就完事了。
 
-The returned data is json:
-
-- success
-
+返回数据为 json:
+- 正确返回
 ```json
 {
   "Data": {
@@ -28,8 +25,7 @@ The returned data is json:
   "Message": "success"
 }
 ```
-
-- Server is busy
+- 参数错误
 ```json
 {
   "Data": {
@@ -45,7 +41,7 @@ The returned data is json:
 }
 ```
 
-- exhausted
+- 查询次数用尽
 ```json
 {
   "Data": {
@@ -61,12 +57,13 @@ The returned data is json:
 }
 ```
 
-## Start up
+## 快速安装
 
-Download the packager phoneLocationOpenApi{{platform}}.tar.gz of the corresponding platform, and run the executable program directly after decompressing.
+下载对应平台的打包程序phoneLocationOpenApi{{platform}}.tar.gz，解压后直接运行可执行程序即可。
 
-## Benchmark
-Tested on Alibaba Cloud lightweight cloud (configuration: 1 core - 2GB memory - system disk 40g), request 1w times, concurrent number 100, the results are as follows:
+## 测试
+在阿里云轻量云上测试了一下（配置：1核 - 2GB内存 - 系统盘40g），请求1w次，并发数100，结果如下：
+
 ```
 This is ApacheBench, Version 2.3 <$Revision: 1430300 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -125,7 +122,7 @@ Percentage of the requests served within a certain time (ms)
 
 ```
 
-## Thanks
+## 致谢
 
 @xluohome https://github.com/xluohome
 @astaxie https://github.com/astaxie
